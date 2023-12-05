@@ -9,6 +9,7 @@ document.getElementById('model-container').appendChild(renderer.domElement);
 
 // Load GLB Model
 const loader = new THREE.GLTFLoader();
+const loadingElem = document.getElementById('loading');
 loader.load('ship.glb', function (gltf) {
     let model = gltf.scene;
     model.scale.set(0.1, 0.1, 0.1); // Scale down the model
@@ -16,9 +17,11 @@ loader.load('ship.glb', function (gltf) {
 
     // Adjust Camera and Controls after Model is Loaded
     camera.lookAt(model.position);
+    loadingElem.style.display = 'none';
 
 }, undefined, function (error) {
     console.error(error);
+    loadingElem.innerHTML = 'An error occurred while loading the model.';
 });
 
 // Lighting

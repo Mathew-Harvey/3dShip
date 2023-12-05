@@ -29,3 +29,44 @@ h2 {
   height: 100vh;
   background-color: #022B57; /* Darker blue for the model background */
 }
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #005DAA;
+  z-index: 9999;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5em;
+}
+
+.loading-message {
+  margin-bottom: 20px;
+}
+
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url('./image.png');
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  background-size: contain;
+  animation: moveWave 10s linear infinite;
+}
+
+@keyframes moveWave {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 100%;
+  }
+}
